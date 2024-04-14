@@ -19,7 +19,7 @@ namespace UiAutomation.Basics
             new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
             _driver = new ChromeDriver();
             _driver.Manage().Window.Maximize();
-            _driver.Url = "https://www.google.com/";
+            _driver.Url = "https://www.facebook.com/";
         }
 
         [Test]

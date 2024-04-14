@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UiAutomation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3527f71e611dc605767993775167be45ab56630f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec8c48998a68e4786830cab2b7941c45b1701422")]
 [assembly: System.Reflection.AssemblyProductAttribute("UiAutomation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UiAutomation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
