@@ -1,5 +1,5 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace UiAutomation.Basics
 {
-    public class LaunchBrowser
+    public class PrintTitleOfPage
     {
         private IWebDriver _driver;
 
@@ -25,7 +25,7 @@ namespace UiAutomation.Basics
         [Test]
         public void Test()
         {
-            Console.WriteLine(_driver.Title);
+            Console.WriteLine("Title of page is " + _driver.Title);
         }
 
         [TearDown]
@@ -33,6 +33,5 @@ namespace UiAutomation.Basics
         {
             _driver.Close();
         }
-
     }
 }
