@@ -11,7 +11,7 @@ namespace UiAutomation.Basics
 {
     public class LaunchBrowser
     {
-        private IWebDriver _driver;
+        private IWebDriver? _driver;
 
         [SetUp]
         public void Intialization()
