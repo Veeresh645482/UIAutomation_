@@ -16,16 +16,14 @@ namespace UiAutomation.Basics
         [SetUp]
         public void Intialization()
         {
-            //new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
-            var options = new ChromeOptions();
-            options.AddArgument("--headless=new");
-            options.AddArgument("--no-sandbox");
-            options.AddArgument("--disable-dev-shm-usage");
-            options.AddArgument("--disable-gpu");
+            ChromeOptions options = new ChromeOptions();
+options.AddArgument("--headless=new");
+options.AddArgument("--no-sandbox");
+options.AddArgument("--disable-dev-shm-usage");
+options.AddArgument("--disable-gpu");
+options.AddArgument("--window-size=1920,1080");
 
-            IWebDriver driver = new ChromeDriver(options);
-            //_driver = new ChromeDriver();
-            _driver.Manage().Window.Maximize();
+IWebDriver driver = new ChromeDriver(options);
             _driver.Url = "https://www.facebook.com/";
         }
 
