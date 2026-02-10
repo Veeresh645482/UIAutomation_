@@ -30,7 +30,7 @@ IWebDriver _driver = new ChromeDriver(options);
         [Test]
         public void Test()
         {
-            Console.WriteLine(_driver.Title);
+            Console.WriteLine(_driver?.Title);
         }
 
         [TearDown]
