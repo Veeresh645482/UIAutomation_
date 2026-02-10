@@ -16,7 +16,7 @@ namespace UiAutomation.Basics
         [SetUp]
         public void Intialization()
         {
-            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+            //new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
             var options = new ChromeOptions();
             options.AddArgument("--headless=new");
             options.AddArgument("--no-sandbox");
