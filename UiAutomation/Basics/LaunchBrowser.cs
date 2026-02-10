@@ -23,7 +23,7 @@ options.AddArgument("--disable-dev-shm-usage");
 options.AddArgument("--disable-gpu");
 options.AddArgument("--window-size=1920,1080");
 
-IWebDriver driver = new ChromeDriver(options);
+IWebDriver _driver = new ChromeDriver(options);
             _driver.Url = "https://www.facebook.com/";
         }
 
