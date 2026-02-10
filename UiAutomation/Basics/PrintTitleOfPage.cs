@@ -37,7 +37,7 @@ IWebDriver driver = new ChromeDriver(options);
         [TearDown]
         public void TearDown()
         {
-            _driver.Close();
+            _driver?.Close();
         }
     }
 }
