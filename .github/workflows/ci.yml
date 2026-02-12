@@ -1,31 +1,41 @@
-name: UI Tests
+name: UI Automation CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 permissions:
-  checks: write
   contents: read
+  checks: write
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore
+      - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
+      - name: Build project
         run: dotnet build --no-restore
 
+      # Fix selenium-manager Linux permission issue
+      - name: Fix selenium-manager permissions
+        run: |
+          chmod +x UiAutomation/bin/Debug/net8.0/selenium-manager/linux/selenium-manager || true
+
       - name: Run tests
-        run: dotnet test --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
 
       - name: Publish test results
         uses: EnricoMi/publish-unit-test-result-action@v2
