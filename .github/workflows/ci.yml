@@ -29,7 +29,6 @@ jobs:
       - name: Build project
         run: dotnet build --no-restore
 
-      # Fix selenium-manager Linux permission issue
       - name: Fix selenium-manager permissions
         run: |
           chmod +x UiAutomation/bin/Debug/net8.0/selenium-manager/linux/selenium-manager || true
@@ -37,12 +36,19 @@ jobs:
       - name: Run tests
         run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
 
+      - name: Debug – list screenshot files
+        run: |
+          echo "Listing all png files:"
+          find . -name "*.png" || true
+
       - name: Upload screenshots
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: test-screenshots
-          path: '**/Screenshots/*.png'
+          path: |
+            **/Screenshots/*.png
+            Screenshots/*.png
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -50,5 +56,3 @@ jobs:
         with:
           name: test-results
           path: UiAutomation/TestResults/
-
-     
