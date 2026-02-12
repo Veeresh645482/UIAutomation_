@@ -36,7 +36,37 @@ IWebDriver _driver = new ChromeDriver(options);
         [TearDown]
         public void TearDown()
         {
-            _driver?.Close();
+            try
+            {
+                if (_driver != null)
+                {
+                    // Create screenshot folder
+                    string folder = Path.Combine(
+                        TestContext.CurrentContext.WorkDirectory,
+                        "Screenshots");
+
+                    Directory.CreateDirectory(folder);
+
+                    // File name based on test
+                    string fileName = $"{TestContext.CurrentContext.Test.Name}.png";
+                    string filePath = Path.Combine(folder, fileName);
+
+                    // Take screenshot
+                    var screenshot = ((ITakesScreenshot)_driver).GetScreenshot();
+                    screenshot.SaveAsFile(filePath);
+
+                    Console.WriteLine($"Screenshot saved: {filePath}");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Screenshot failed: " + ex.Message);
+            }
+            finally
+            {
+                _driver?.Quit();
+            }
         }
 
     }
